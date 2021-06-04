@@ -100,6 +100,7 @@ const store = new Vuex.Store({
             commit(SET_MODE, mode)
         },
         socket_userLoggedIn({ commit }, user) {
+            console.log('check')
             commit(LOGIN_PLAYER, user)
             router.push({
                 name: 'game'

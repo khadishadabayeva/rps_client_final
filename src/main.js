@@ -13,7 +13,7 @@ if (process.env.VUE_APP_API_URL) {
 
 const io = SocketIO(url, {})
 // add a reference to the SocketIO instance to the store
-store.$socket = io
+store.socket = io
 
 if (store.state.user != null) {
   store.dispatch('login', store.state.user.username)

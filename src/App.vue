@@ -7,30 +7,14 @@
 <script>
 export default {
   name: 'App',
-  data () {
-      return {
-          //messages: [],
-          socketId: ''
-      }
-  },
+  // data () {
+  //     return {
+  //     }
+  // },
   computed: {
-    messages() {
-        return this.$store.state.messages
-    }
 },
   components: {
   },
-  // sockets: {
-  //     // connect() {
-  //     //   this.socketId = this.$socket.id
-  //     // },
-  //     serverMessage (arg) {
-  //         this.messages.push(arg)
-  //     },
-  //     serverMessages (arg) {
-  //       this.messages = arg
-  //     }
-  // }
 }
 </script>
 
