@@ -1,34 +1,14 @@
 <template>
   <div class="about">
-    <v-card-title>Result</v-card-title>
-    <v-card-text>
-      <v-simple-table>
-        <thead>
-          <tr>
-            <th class="text-center">Username</th>
-            <th class="text-center">Turn</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(user, id) in result.players" :key="id">
-            <td class="text-center">{{user.username}}</td>
-            <td class="text-center">{{user.turn}}</td>
-          </tr>
-        </tbody>
-      </v-simple-table>
-
-      <v-banner 
-        elevation="2"
-        color="rgb(200,200,200)">
-        <div class="font-weight-bold text-center" v-if="result.winner">{{result.winner.username}} wins!</div>
-        <div class="font-weight-bold text-center" v-if="result.winner == null">Draw!</div>
-      </v-banner>
-
-    </v-card-text>
-
-    <v-card-actions>
-      <v-btn @click="newMatch">Start a new match</v-btn>
-    </v-card-actions>
+    <h1>Result</h1>
+    <div v-if="result.winner">{{result.winner.username}} wins!</div>
+    <div v-if="result.winner == null">Draw!</div>
+    <table>
+      <tr v-for="(user, id) in result.players" :key="id">
+        <td>{{user.username}}</td><td>{{user.turn}}</td>
+      </tr>
+    </table>
+    <button @click="newMatch">Start a new match</button>
   </div>
 </template>
 
