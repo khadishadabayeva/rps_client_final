@@ -29,7 +29,7 @@ const store = new Vuex.Store({
         winner: null,
         matchRequest: null,
         turn: null,
-        mode: 'speech'
+        mode: 'buttons'
     },
     mutations: {
         [LOGIN_PLAYER](state, payload) {
