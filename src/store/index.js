@@ -29,7 +29,8 @@ const store = new Vuex.Store({
         winner: null,
         matchRequest: null,
         turn: null,
-        mode: 'buttons'
+        mode: 'buttons',
+        result: null
     },
     mutations: {
         [LOGIN_PLAYER](state, payload) {
@@ -58,12 +59,13 @@ const store = new Vuex.Store({
             state.turn = payload.turn
         },
         [END_MATCH](state, payload) {
-            state.winner = payload.winner
+            state.result = payload
             state.screen = 'result'
         },
         [NEW_MATCH](state) {
             state.winner = null
             state.turn = null
+            state.result = null
             state.screen = 'idle'
         },
         [MATCH_REQUESTED](state, payload) {
@@ -100,7 +102,6 @@ const store = new Vuex.Store({
             commit(SET_MODE, mode)
         },
         socket_userLoggedIn({ commit }, user) {
-            console.log('check')
             commit(LOGIN_PLAYER, user)
             router.push({
                 name: 'game'
@@ -126,7 +127,12 @@ const store = new Vuex.Store({
         }
     },
     getters: {
-        loggedIn: state => state.user !== null
+        loggedIn: state => {
+            return state.user !== null
+        },
+        username: state => {
+            return state.user.username
+        }
     }
 })
 
